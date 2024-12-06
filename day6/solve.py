@@ -1,3 +1,8 @@
+import time
+
+start_time = time.time()
+
+
 with open("input") as file:
     lines = file.read().split()
 width, height = len(lines), len(lines[0])
@@ -52,4 +57,8 @@ visited, _ = navigate(None, None)
 part1_result = len(visited)
 part2_result = sum(navigate(x, y)[1] for x, y in visited if (x, y) != start_position)
 
+end_time = time.time()
+
 print(part1_result, part2_result)
+
+print("Execution time: {:.2f} seconds".format(end_time - start_time))
